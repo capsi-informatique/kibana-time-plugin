@@ -1,0 +1,60 @@
+# Kibana installation dir for Centos
+KIBANA_HOME=/usr/share/kibana
+
+# Check Node version for your Kibana
+# In my case >>  "node": "10.15.2"
+cat $KIBANA_HOME/package.json | grep node
+
+# Install Node.js with package manager
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+yum install nodejs
+
+# Check installed Node version
+# In my case >> v10.16.3 (!! VERSION MISMATCH !!)
+node --version
+
+# Install Node version manager
+sudo npm install -g n
+
+# Install Node version matching with Kibana
+sudo n install 10.15.2
+
+# Uninstall Centos Node. 'node_modules' won't be removed so you can still use 'n'.
+yum remove nodejs
+
+# Check Node version. It should be 'v10.15.2'
+which node
+   -> /usr/local/bin/node
+
+which npm
+   -> /usr/local/bin/npm
+
+node --version
+   -> v10.15.2
+
+#Se relogguer pour mettre a jour le path
+KIBANA_HOME=/usr/share/kibana
+
+# Install bower for Kibana time-plugin
+sudo npm install -g bower
+
+yum install git
+
+# Install plugin
+cd $KIBANA_HOME/plugins
+sudo git clone http://github.com/nreese/kibana-time-plugin.git
+cd kibana-time-plugin
+sudo git checkout master
+
+# Update plugin package.json to specify your Kibana version.
+# sudo sed -i -e 's/"version".*/"version" : "7.3.1"/' package.json
+
+# --allow-root was required to run bower as root.
+sudo bower install --allow-root
+
+# nettoyage du cache de plugin
+rm -rf $KIBANA_HOME/optimize/bundles
+
+# Restart Kibana
+sudo systemctl restart kibana
+
