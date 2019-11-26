@@ -22,7 +22,7 @@ module.config(function($httpProvider) {
 
   module.controller('KbnTimeVisController', function (config, $scope, $rootScope, Private, $filter, $timeout) {
     const TIMESLIDER_INSTR = "Click and drag to select a time range."
-    const DATE_FORMAT = 'YYYY/MM/dd - HH:mm:ss';
+    const DATE_FORMAT = 'YYYY/MM/dd';
     $rootScope.plugin = {
       timePlugin: {}
     };
