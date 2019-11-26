@@ -22,7 +22,7 @@ module.config(function($httpProvider) {
 
   module.controller('KbnTimeVisController', function (config, $scope, $rootScope, Private, $filter, $timeout) {
     const TIMESLIDER_INSTR = "Click and drag to select a time range."
-    const DATE_FORMAT = 'MMMM Do YYYY, HH:mm:ss z';
+    const DATE_FORMAT = 'YYYY/MM/dd - HH:mm:ss';
     $rootScope.plugin = {
       timePlugin: {}
     };
@@ -59,13 +59,13 @@ module.config(function($httpProvider) {
       y: 'year'
     };
     $scope.relativeOptions = [
-      {text: 'Seconds ago', value: 's'},
-      {text: 'Minutes ago', value: 'm'},
-      {text: 'Hours ago', value: 'h'},
-      {text: 'Days ago', value: 'd'},
-      {text: 'Weeks ago', value: 'w'},
-      {text: 'Months ago', value: 'M'},
-      {text: 'Years ago', value: 'y'},
+      {text: 'Secondes auparavant', value: 's'},
+      {text: 'Minutes auparavant', value: 'm'},
+      {text: 'Heures auparavant', value: 'h'},
+      {text: 'Jours auparavant', value: 'd'},
+      {text: 'Semaines auparavant', value: 'w'},
+      {text: 'Mois auparavant', value: 'M'},
+      {text: 'Annees auparavant', value: 'y'},
     ];
     $scope.relative = {
       count: 1,
@@ -74,13 +74,13 @@ module.config(function($httpProvider) {
       round: false
     };
     $scope.sliderRoundOptions = [
-      {text: 'Second', value: 's'},
+      {text: 'Seconde', value: 's'},
       {text: 'Minute', value: 'm'},
-      {text: 'Hour', value: 'h'},
-      {text: 'Day', value: 'd'},
-      {text: 'Week', value: 'w'},
-      {text: 'Month', value: 'M'},
-      {text: 'Year', value: 'y'},
+      {text: 'Heure', value: 'h'},
+      {text: 'Jour', value: 'd'},
+      {text: 'Semaine', value: 'w'},
+      {text: 'Mois', value: 'M'},
+      {text: 'Annee', value: 'y'},
     ];
     $scope.slider = {
       roundUnit: 's',
@@ -171,7 +171,7 @@ module.config(function($httpProvider) {
       $scope.time.mode = 'absolute';
       expectedFrom = moment(start);
       expectedTo = moment(end);
-      $scope.animationTitle = 'Frame: ' + expectedFrom.format(DATE_FORMAT) + ' to ' + expectedTo.format(DATE_FORMAT);
+      $scope.animationTitle = 'Periode: ' + expectedFrom.format(DATE_FORMAT) + ' A ' + expectedTo.format(DATE_FORMAT);
       updateKbnTime();
     }
 

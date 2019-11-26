@@ -4,7 +4,7 @@
   <carousel interval="0">
       <slide ng-if="vis.params.enable_quick" active="activeSlide.quick">
         <h4 style="margin-top: 0px; margin-bottom: 2px;">
-          <strong><i aria-hidden="true" class="fa fa-clock-o"></i> Quick</strong>
+          <strong><i aria-hidden="true" class="fa fa-clock-o"></i> Pré-défini</strong>
         </h4>
         <div>
           <select ng-model="selectedQuick" ng-options="option.display for option in quickLists" ng-change="setQuick(selectedQuick)">
@@ -19,9 +19,9 @@
         <form ng-submit="setRelative()" class="form-inline">
           <div style="display: inline-block;">
             <label style="float:left;">
-              From:
+              De:
               <span ng-show="relative.preview">{{relative.preview}}</span>
-              <span ng-hide="relative.preview"><i>Invalid Expression</i></span>
+              <span ng-hide="relative.preview"><i>Expression invalide</i></span>
             </label>
             <br>
             <div class="form-group">
@@ -49,14 +49,14 @@
                   ng-checked="relative.round"
                   ng-change="formatRelative()"
                   type="checkbox">
-                round to the {{units[relative.unit]}}
+                arrondi à {{units[relative.unit]}}
               </label>
             </div>
           </div>
 
           <div style="display: inline-block;">
             <label style="float:left;">
-              To: Now
+              A: Maintenant
             </label>
             <br>
             <div class="form-group">
@@ -69,7 +69,7 @@
             <br>
             <div class="form-group">
               <button type="submit" class="btn btn-primary" ng-disabled="!relative.preview">
-                Go
+                Appliquer
               </button>
             </div>
           </div>
@@ -78,17 +78,17 @@
 
       <slide ng-if="vis.params.enable_absolut" active="activeSlide.absolute">
         <h4 style="margin-top: 0px; margin-bottom: 2px;">
-          <strong><i aria-hidden="true" class="fa fa-clock-o"></i> Absolute</strong>
+          <strong><i aria-hidden="true" class="fa fa-clock-o"></i> Absolu</strong>
         </h4>
         <form ng-submit="setAbsolute()">
           <div style="display: inline-block;">
-            <label class="small" style="float:left;">From: <span ng-show="!time.absolute_from"><i>Invalid Date</i></span>
+            <label class="small" style="float:left;">De: <span ng-show="!time.absolute_from"><i>Date invalide</i></span>
             </label>
             <input type="text" required class="form-control" input-datetime="{{format}}" ng-model="time.absolute_from">
           </div>
 
           <div style="display: inline-block;">
-            <label class="small" style="float:left;">To: <span ng-show="!time.absolute_to"><i>Invalid Date</i></span>
+            <label class="small" style="float:left;">A: <span ng-show="!time.absolute_to"><i>Date invalide</i></span>
             </label>
             <input type="text" required class="form-control" input-datetime="{{format}}" ng-model="time.absolute_to">
           </div>
@@ -97,7 +97,7 @@
             <button class="btn btn-primary" style="margin-bottom: 60px;" ng-disabled="time.absolute_from > time.absolute_to || !time.absolute_from || !time.absolute_to" type="submit">
               Go
             </button>
-            <span class="small" ng-show="time.absolute_from > time.absolute_to"><strong>From</strong> must occur before <strong>To</strong></span>
+            <span class="small" ng-show="time.absolute_from > time.absolute_to"><strong>La date de début doit être inférieure à la date de fin</strong></span>
           </div>
         </form>
       </slide>
@@ -113,7 +113,7 @@
         <timeslider start="getStartTime()" end="getEndTime()" ticks="10" on-change="filterByTime" playback="kibanaPlayback" on-clear="removeTimeFilter" style="margin-left: 43px; margin-right: 43px;"></timeslider>
         <div class="small" style="display: inline-block;">
           <label style="float:left;">
-            round to the nearest
+            arrondi à la date la plus proche
           </label>
           <select
             ng-model="slider.roundUnit"
