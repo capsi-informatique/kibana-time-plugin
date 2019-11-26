@@ -84,13 +84,13 @@
           <div style="display: inline-block;">
             <label class="small" style="float:left;">De: <span ng-show="!time.absolute_from"><i>Date invalide</i></span>
             </label>
-            <input type="text" required class="form-control" input-datetime="{{format}}" ng-model="time.absolute_from">
+            <input type="date" required class="form-control" placeholder="yyyy-MM-dd" input-datetime="{{format}}" ng-model="time.absolute_from">
           </div>
 
           <div style="display: inline-block;">
             <label class="small" style="float:left;">A: <span ng-show="!time.absolute_to"><i>Date invalide</i></span>
             </label>
-            <input type="text" required class="form-control" input-datetime="{{format}}" ng-model="time.absolute_to">
+            <input type="date" required class="form-control" placeholder="yyyy-MM-dd" input-datetime="{{format}}" ng-model="time.absolute_to">
           </div>
 
           <div style="display: inline-block;">
