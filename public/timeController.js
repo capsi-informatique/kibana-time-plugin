@@ -133,7 +133,7 @@ module.config(function($httpProvider) {
       if(now - lastUpdated > 200) {
         console.log("updating KbnTimeVisController.$scope stay in sync with kibana timefilter");
         const newTime = timefilter.getTime();
-		console.log("Time from timefilter is " + newTime) ;
+		console.log("Time from timefilter is " + newTime.from + " -> " + newTime.to) ;
 		
         //clean up old selections
         $scope.activeSlide = {
