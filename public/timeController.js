@@ -133,7 +133,8 @@ module.config(function($httpProvider) {
       if(now - lastUpdated > 200) {
         console.log("updating KbnTimeVisController.$scope stay in sync with kibana timefilter");
         const newTime = timefilter.getTime();
-
+		console.log("Time from timefilter is " + newTime) ;
+		
         //clean up old selections
         $scope.activeSlide = {
           absolute: false,
@@ -148,6 +149,7 @@ module.config(function($httpProvider) {
           absolute_from: dateMath.parse(newTime.from),
           absolute_to: dateMath.parse(newTime.to, true)
         }
+/*	SRU
         setRelativeParts(newTime.to, newTime.from);
         if('quick' === newTime.mode) {
           $scope.activeSlide.quick = true;
@@ -162,6 +164,8 @@ module.config(function($httpProvider) {
         } else {
           $scope.activeSlide.absolute = true;
         }
+*/
+        $scope.activeSlide.absolute = true;
         updateTimeslider();
       }
     }
