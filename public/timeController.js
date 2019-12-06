@@ -146,8 +146,8 @@ module.config(function($httpProvider) {
         $scope.time = {
           from: newTime.from,
           to: newTime.to,
-          absolute_from: dateMath.parse(newTime.from),
-          absolute_to: dateMath.parse(newTime.to, true)
+          absolute_from: newTime.from,
+          absolute_to: newTime.to
         }
 /*	SRU
         setRelativeParts(newTime.to, newTime.from);
@@ -229,8 +229,8 @@ module.config(function($httpProvider) {
 
       //keep other carousel slides in sync with new values
       if($scope.time.mode !== 'absolute') {
-        $scope.time.absolute_from = dateMath.parse($scope.time.from);
-        $scope.time.absolute_to = dateMath.parse($scope.time.to, true);
+        $scope.time.absolute_from = $scope.time.from;
+        $scope.time.absolute_to = $scope.time.to;
       }
       if($scope.time.mode !== 'relative') {
         //wrapped in $timeout to avoid calling $apply while all ready in progress
