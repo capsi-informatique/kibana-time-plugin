@@ -149,7 +149,6 @@ module.config(function($httpProvider) {
           absolute_from: newTime.from,
           absolute_to: newTime.to
         }
-/*	SRU
         setRelativeParts(newTime.to, newTime.from);
         if('quick' === newTime.mode) {
           $scope.activeSlide.quick = true;
@@ -164,7 +163,6 @@ module.config(function($httpProvider) {
         } else {
           $scope.activeSlide.absolute = true;
         }
-*/
         $scope.activeSlide.absolute = true;
         updateTimeslider();
       }
@@ -190,8 +188,8 @@ module.config(function($httpProvider) {
       $scope.time.mode = 'absolute';
       $scope.time.from = $scope.time.absolute_from;
       $scope.time.to = $scope.time.absolute_to;
-      expectedFrom = $scope.time.from;
-      expectedTo = $scope.time.to;
+      expectedFrom = $scope.time.absolute_from;
+      expectedTo = $scope.time.absolute_to;
       updateKbnTime();
     };
 
