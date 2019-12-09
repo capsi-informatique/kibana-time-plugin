@@ -188,8 +188,8 @@ module.config(function($httpProvider) {
       $scope.time.mode = 'absolute';
       $scope.time.from = $scope.time.absolute_from;
       $scope.time.to = $scope.time.absolute_to;
-      expectedFrom = $scope.time.absolute_from;
-      expectedTo = $scope.time.absolute_to;
+      expectedFrom = $scope.time.from;
+      expectedTo = $scope.time.to;
       updateKbnTime();
     };
 
